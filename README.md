@@ -1,5 +1,5 @@
-# Scheme Language Support for Visual Studio Code
-
+# Cult Language Support for Visual Studio Code
+Forked from https://github.com/sjhuangx/vscode-scheme
 This extension add Scheme language support to VS Code.
 
 ## Features
