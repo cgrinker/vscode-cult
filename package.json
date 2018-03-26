@@ -1,18 +1,18 @@
 {
-    "name": "vscode-scheme",
-    "displayName": "vscode-scheme",
-    "description": "Scheme language support for VSCode",
+    "name": "vscode-cult",
+    "displayName": "vscode-cult",
+    "description": "Cult language support for VSCode",
     "keywords": [
-        "scheme",
-        "syntax"
+        "syntax",
+        "Cult"
     ],
-    "version": "0.3.2",
-    "publisher": "sjhuangx",
+    "version": "0.1.0",
+    "publisher": "cgrinker",
     "icon": "images/lambda.png",
-    "main": "./out/src/schemeMain",
+    "main": "./out/src/cultMain",
     "license": "MIT",
     "author": {
-        "name": "Allen Huang"
+        "name": "Clark Rinker"
     },
     "engines": {
         "vscode": "^1.11.0"
@@ -22,44 +22,42 @@
         "Snippets"
     ],
     "activationEvents": [
-        "onLanguage:scheme"
+        "onLanguage:cult"
     ],
     "repository": {
         "type": "git",
-        "url": "https://github.com/sjhuangx/vscode-scheme.git"
+        "url": "https://github.com/cgrinker/vscode-cult.git"
     },
     "bugs": {
-        "url": "https://github.com/sjhuangx/vscode-scheme/issues"
+        "url": "https://github.com/cgrinker/vscode-cult/issues"
     },
-    "homepage": "https://github.com/sjhuangx/vscode-scheme",
+    "homepage": "https://github.com/cgrinker/vscode-cult",
     "contributes": {
         "languages": [
             {
-                "id": "scheme",
+                "id": "cult",
                 "aliases": [
-                    "Scheme",
-                    "scheme"
+                    "Cult",
+                    "cult"
                 ],
                 "extensions": [
-                    ".scm",
-                    ".ss",
-                    ".sch",
-                    ".rkt"
+                    ".cult",
+                    ".cul"
                 ],
-                "configuration": "./scheme.configuration.json"
+                "configuration": "./cult.configuration.json"
             }
         ],
         "grammars": [
             {
-                "language": "scheme",
-                "scopeName": "source.scheme",
-                "path": "./syntaxes/scheme.tmLanguage"
+                "language": "cult",
+                "scopeName": "source.cult",
+                "path": "./syntaxes/cult.tmLanguage"
             }
         ],
         "snippets": [
             {
-                "language": "scheme",
-                "path": "./snippets/scheme.json"
+                "language": "cult",
+                "path": "./snippets/cult.json"
             }
         ]
     },

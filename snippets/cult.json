@@ -3,42 +3,42 @@
         "prefix": "cond",
         "body": "(cond (${1:predicate1} ${2:consequent1})\n\t(${3:predicate2} ${4:consequent2}))",
         "description": "Code snippet for condition statement",
-        "scope": "source.scheme"
+        "scope": "source.cult"
     },
     "define": {
         "prefix": "define",
         "body": "(define (${1:name} ${2:parameters})\n\t${3:body})",
         "description": "Code snippet for define statement",
-        "scope": "source.scheme"
+        "scope": "source.cult"
     },
     "if": {
         "prefix": "if",
         "body": "(if (${1:predicate})\n\t${2:consequent}\n\t${3:alternative})",
         "description": "Code snippet for an if statement",
-        "scope": "source.scheme"
+        "scope": "source.cult"
     },
     "lambda": {
         "prefix": "lambda",
         "body": "(lambda ($1) ${2:#f})",
         "description": "Code snippet for lambda expression",
-        "scope": "source.scheme"
+        "scope": "source.cult"
     },
     "let": {
         "prefix": "let",
         "body": "(let (${1:variables})\n\t($0))",
         "description": "Code snippet for let statement",
-        "scope": "source.scheme"
+        "scope": "source.cult"
     },
     "let1": {
         "prefix": "let1",
         "body": "(let ((${1:variable} ${2:value}))\n\t($0))",
         "description": "Code snippet for let1 statement",
-        "scope": "source.scheme"
+        "scope": "source.cult"
     },
     "set!": {
         "prefix": "set!",
         "body": "(set! ${1:place} ${2:value})",
         "description": "Code snippet for set! statement",
-        "scope": "source.scheme"
+        "scope": "source.cult"
     }
 }
