@@ -1,0 +1,61 @@
+(define _initialize {
+  "capabilities" {
+    "textDocumentSync" 0
+	  "hoverProvider" false
+	  "completionProvider" {
+      "resolveProvider" false
+      "triggerCharacters" [
+
+      ]
+    }
+    "signatureHelpProvider" {
+      "triggerCharacters" [
+
+      ]
+    }
+    "definitionProvider" false
+    "typeDefinitionProvider" false
+    "implementationProvider" false
+    "referencesProvider" false
+    "documentHighlightProvider" false
+    "documentSymbolProvider" false
+    "workspaceSymbolProvider" false
+    "codeActionProvider" false
+    "codeLensProvider" false
+    "documentFormattingProvider" false
+    "documentRangeFormattingProvider" false
+
+    ; "documentOnTypeFormattingProvider" {
+    ;   "firstTriggerCharacter" "a"
+    ;   "moreTriggerCharacter" [
+    ;     "s"
+    ;   ]
+    ; }
+    
+    "renameProvider" false
+    
+    ; "documentLinkProvider" {
+    ;   "resolveProvider" false
+    ; }
+
+    ; "colorProvider" {
+
+    ; }
+    
+    "executeCommandProvider" {
+      "commands" [
+        "evalFile"
+        "evalSelection"
+      ]
+    }
+
+    "workspace" {
+      
+      "workspaceFolders" {
+        "supported" false
+        "changeNotifications" false
+      }
+    }
+})
+
+(define initialize (function (req) (_initialize)))

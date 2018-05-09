@@ -1,0 +1,14 @@
+(define initialized (function (req) ({
+  "isIncomplete" false
+  "items" [
+    {
+      "label" "list/map"
+      "kind" 3 ;function
+      "detail" "Functor Map"
+      "documentation" {
+        "kind" markdown
+        "value" "#FMap yo"
+      }
+    }
+  ]
+})))
