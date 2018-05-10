@@ -7,7 +7,7 @@
         "Cult"
     ],
     "version": "0.1.0",
-    "publisher": "cgrinker",
+    "publisher": "clarkrinker",
     "icon": "images/lambda.png",
     "main": "./out/src/cultMain",
     "license": "MIT",
@@ -68,10 +68,13 @@
         "test": "node ./node_modules/vscode/bin/test"
     },
     "devDependencies": {
-        "typescript": "^2.0.3",
-        "vscode": "^1.0.0",
-        "mocha": "^2.3.3",
+        "@types/mocha": "^2.2.32",
         "@types/node": "^6.0.40",
-        "@types/mocha": "^2.2.32"
+        "mocha": "^2.3.3",
+        "typescript": "^2.0.3",
+        "vscode": "^1.1.17"
+    },
+    "dependencies": {
+        "vscode-languageclient": "^4.1.3"
     }
 }

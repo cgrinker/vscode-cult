@@ -1,14 +1,14 @@
-(define initialized (function (req) ({
-  "isIncomplete" false
-  "items" [
-    {
-      "label" "list/map"
-      "kind" 3 ;function
-      "detail" "Functor Map"
-      "documentation" {
-        "kind" markdown
-        "value" "#FMap yo"
-      }
-    }
-  ]
-})))
+(require "anon:boot--1")
+(define completion (function (context request) (do
+  (define stdout (map/get context "stdout"))
+  (define res (lsp/dumpsymbols))
+  (uv/stream/write stdout 
+    (lsp/makeResponse (string {
+      "id" (map/get request "id")
+      "result" {
+        "isIncomplete" false
+        "items" res
+      } 
+    }))
+  )
+)))

@@ -1,1 +1,11 @@
-(define exit (function (req) ({})))
+(require "anon:boot--1")
+(define exit (function (context request) (do
+  (define logMessage (map/get (map/get context "handlers") "window/logMessage"))
+  (logMessage context {
+    "params" {
+      "type" 3
+      "message" "Interpreter Will Exit"
+    }
+  })
+)
+))

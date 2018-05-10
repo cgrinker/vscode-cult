@@ -1,5 +1,11 @@
-(define didClose (function (req) (
-  (do
-    
+(require "anon:boot--1")
+(define didClose (function (context request) (do
+  (define logMessage (map/get (map/get context "handlers") "window/logMessage"))
+  (logMessage context {
+    "params" {
+      "type" 3
+      "message" "File Did Close"
+    }
+  })
   )
-)
+))

@@ -1,4 +1,0 @@
-(define publishDiagnostics (function (file diags) ({
-  "uri" file
-  "diagnostics" diags
-})))

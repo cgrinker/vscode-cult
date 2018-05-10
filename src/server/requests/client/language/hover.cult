@@ -1,11 +1,12 @@
 (require "anon:boot--1")
-(define shutdown (function (context request) (do
-    (define loop (map/get context "loop"))
+(define hover (function (context request) (do
     (define stdout (map/get context "stdout"))
     (uv/stream/write stdout 
       (lsp/makeResponse (string {
         "id" (map/get request "id")
-        "contents" null
+        "result" {
+          "contents" "## A Hover"
+        }
       }))
     )  
   )

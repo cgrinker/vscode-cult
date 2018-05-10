@@ -1,12 +1,10 @@
-(define _initialize {
+(require "anon:boot--1")
+(define data {
   "capabilities" {
     "textDocumentSync" 0
-	  "hoverProvider" false
+	  "hoverProvider" true
 	  "completionProvider" {
-      "resolveProvider" false
-      "triggerCharacters" [
-
-      ]
+      "triggerCharacters" [ "(" ]
     }
     "signatureHelpProvider" {
       "triggerCharacters" [
@@ -20,7 +18,7 @@
     "documentHighlightProvider" false
     "documentSymbolProvider" false
     "workspaceSymbolProvider" false
-    "codeActionProvider" false
+    "codeActionProvider" true
     "codeLensProvider" false
     "documentFormattingProvider" false
     "documentRangeFormattingProvider" false
@@ -35,7 +33,7 @@
     "renameProvider" false
     
     ; "documentLinkProvider" {
-    ;   "resolveProvider" false
+    ;   "resolveProvider" true
     ; }
 
     ; "colorProvider" {
@@ -56,6 +54,9 @@
         "changeNotifications" false
       }
     }
+  }
 })
 
-(define initialize (function (req) (_initialize)))
+(define initialize (function (context request) 
+  (uv/stream/write (map/get context "stdout") (lsp/makeResponse (string {"id" (map/get request "id") "result" data})))
+))

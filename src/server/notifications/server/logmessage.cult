@@ -1,4 +1,10 @@
-(define showmessage (function (level msg) ({
-  "type" level
-  "message" msg
-})))
+(require "anon:boot--1")
+(define logMessage (function (context request) (do
+  (define stdout (map/get context "stdout"))
+  (uv/stream/write stdout 
+    (lsp/makeResponse (string {
+      "method" "window/logMessage"
+      "params" (map/get request "params")
+    }))
+  )
+)))

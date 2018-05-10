@@ -1,4 +1,0 @@
-(define showmessage (function (level msg) ({
-  "type" level
-  "message" msg
-})))
