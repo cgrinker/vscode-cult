@@ -1,21 +1,22 @@
-import * as vscode from 'vscode';
-import {configuration} from './cultConfiguration';
-import * as path from 'path';
+const vscode = require('vscode');
+const os = require('os');
+const configuration = require('./cultConfiguration').configuration;
+const path = require('path');
 
-import { LanguageClient, LanguageClientOptions, ServerOptions, TransportKind } from 'vscode-languageclient';
+const { LanguageClient, LanguageClientOptions, ServerOptions, TransportKind } = require('vscode-languageclient');
 
 
-export function activate(ctx: vscode.ExtensionContext) {
+function activate(ctx) {
     //TransportKind.stdio
     let serverModule = ctx.asAbsolutePath(path.join('src/server', 'server.cult'));
 
-    let serverOptions: ServerOptions = {
-        command: "cultlsp.exe",
+    let serverOptions = {
+        command: (os.platform() === 'win32') ? "cult.exe" : "cult",
         args: [serverModule],
 	};
 
     
-    let clientOptions: LanguageClientOptions = {
+    let clientOptions = {
         // Register the server for plain text documents
         documentSelector: [{scheme: 'file', language: 'cult'}],
         
@@ -31,5 +32,10 @@ export function activate(ctx: vscode.ExtensionContext) {
     ctx.subscriptions.push(vscode.languages.setLanguageConfiguration('cult', configuration));
 }
 
-export function deactivate() {
+function deactivate() {
+}
+
+module.exports = {
+    activate,
+    deactivate
 }

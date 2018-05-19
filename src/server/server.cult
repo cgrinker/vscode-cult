@@ -1,25 +1,30 @@
-(require "anon:boot--1")
-(require "file:D:/Data/Clark/cult/cultlang/vscode-cult/src/server/notifications/server/logMessage.cult")
+(load-dll "CultlangUv.dll")
+(load-dll "CultlangLsp.dll")
 
-(require "file:D:/Data/Clark/cult/cultlang/vscode-cult/src/server/notifications/client/textDocument/didChange.cult")
-(require "file:D:/Data/Clark/cult/cultlang/vscode-cult/src/server/notifications/client/textDocument/didClose.cult")
-(require "file:D:/Data/Clark/cult/cultlang/vscode-cult/src/server/notifications/client/textDocument/didOpen.cult")
-(require "file:D:/Data/Clark/cult/cultlang/vscode-cult/src/server/notifications/client/textDocument/didSave.cult")
-(require "file:D:/Data/Clark/cult/cultlang/vscode-cult/src/server/notifications/client/textDocument/willSave.cult")
-(require "file:D:/Data/Clark/cult/cultlang/vscode-cult/src/server/notifications/client/textDocument/willSaveUntil.cult")
+(require "builtin:cult/uv")
+(require "builtin:cult/lsp")
 
-(require "file:D:/Data/Clark/cult/cultlang/vscode-cult/src/server/notifications/client/exit.cult")
-(require "file:D:/Data/Clark/cult/cultlang/vscode-cult/src/server/notifications/client/initialized.cult")
+(require "file:notifications/server/logMessage.cult")
 
-(require "file:D:/Data/Clark/cult/cultlang/vscode-cult/src/server/requests/client/initialize.cult")
-(require "file:D:/Data/Clark/cult/cultlang/vscode-cult/src/server/requests/client/shutdown.cult")
+(require "file:notifications/client/textDocument/didChange.cult")
+(require "file:notifications/client/textDocument/didClose.cult")
+(require "file:notifications/client/textDocument/didOpen.cult")
+(require "file:notifications/client/textDocument/didSave.cult")
+(require "file:notifications/client/textDocument/willSave.cult")
+(require "file:notifications/client/textDocument/willSaveUntil.cult")
 
-(require "file:D:/Data/Clark/cult/cultlang/vscode-cult/src/server/requests/client/workspace/didChangeConfiguration.cult")
-(require "file:D:/Data/Clark/cult/cultlang/vscode-cult/src/server/requests/client/workspace/executeCommand.cult")
+(require "file:notifications/client/exit.cult")
+(require "file:notifications/client/initialized.cult")
 
-(require "file:D:/Data/Clark/cult/cultlang/vscode-cult/src/server/requests/client/language/completion.cult")
-(require "file:D:/Data/Clark/cult/cultlang/vscode-cult/src/server/requests/client/language/codeAction.cult")
-(require "file:D:/Data/Clark/cult/cultlang/vscode-cult/src/server/requests/client/language/hover.cult")
+(require "file:requests/client/initialize.cult")
+(require "file:requests/client/shutdown.cult")
+
+(require "file:requests/client/workspace/didChangeConfiguration.cult")
+(require "file:requests/client/workspace/executeCommand.cult")
+
+(require "file:requests/client/language/completion.cult")
+(require "file:requests/client/language/codeAction.cult")
+(require "file:requests/client/language/hover.cult")
 
 (define handlers {
 	"textDocument/didChange" didChange
@@ -37,7 +42,7 @@
 
 	"textDocument/completion" completion
 	"textDocument/codeAction" codeAction
-	"textDocument/hover" hover
+	;"textDocument/hover" hover
 
 	"initialize" initialize
 	"shutdown" shutdown
@@ -75,7 +80,7 @@
 							(handler context request)
 						)
 						(do
-							(uv/stream/write stdout (lsp/makeResponse (string {"id" (map/get request "id") "error" { "code" -32601 "message" (fmt "No Such method %{0}" (map/get request "method"))}})))
+							(uv/stream/write stdout (lsp/makeResponse (string {"id" (map/get request "id") "error" { "code" -32601 "message" (format "No Such method %{0}" (map/get request "method"))}})))
 						)
 					)
 				)
@@ -96,7 +101,5 @@
 
 (uv/stream/context stdout oHandlers)
 
-(define main (function ()
-	(uv/stream/read stdin)
-	(uv/run loop)
-))
+(uv/stream/read stdin)
+(uv/run loop)

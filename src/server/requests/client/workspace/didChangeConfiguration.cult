@@ -1,4 +1,6 @@
-(require "anon:boot--1")
+(require "builtin:cult/uv")
+(require "builtin:cult/lsp")
+
 (define didChangeConfiguration (function (context request) 
   (do
     (define stdout (map/get context "stdout"))
