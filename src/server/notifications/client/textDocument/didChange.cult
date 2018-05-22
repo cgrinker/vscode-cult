@@ -6,7 +6,7 @@
     (logMessage context {
       "params" {
         "type" 3
-        "message" "File Did Change"
+        "message" (print context)
       }
     })
   )

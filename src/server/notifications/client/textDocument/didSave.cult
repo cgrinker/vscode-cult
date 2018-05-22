@@ -3,11 +3,13 @@
 
 (define didSave (function (context request) (do
   (define logMessage (map/get (map/get context "handlers") "window/logMessage"))
+  (define uri (lsp/uri/decode (map/get (map/get (map/get request "params") "textDocument") "uri")))
+  (define fpath (lsp/uri/filepath uri))
   (logMessage context {
     "params" {
       "type" 3
       "message" "File Did Save"
     }
-  })
+  })  
 )
 ))

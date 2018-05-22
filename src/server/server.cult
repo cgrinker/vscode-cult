@@ -32,7 +32,7 @@
 	"textDocument/didOpen" didOpen
 	"textDocument/didSave" didSave
 	"textDocument/willSave" willSave
-	"textDocument/willSaveUntil" willSaveUntil
+	"textDocument/willSaveWaitUntil" willSaveUntil
 	"window/logMessage" logMessage
 	"exit" exit
 	"initialized" initialized
@@ -42,7 +42,7 @@
 
 	"textDocument/completion" completion
 	"textDocument/codeAction" codeAction
-	;"textDocument/hover" hover
+	"textDocument/hover" hover
 
 	"initialize" initialize
 	"shutdown" shutdown

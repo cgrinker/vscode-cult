@@ -6,7 +6,7 @@
   (logMessage context {
     "params" {
       "type" 3
-      "message" "File Will Save"
+      "message" (string request)
     }
   })
 )

@@ -3,7 +3,14 @@
 
 (define data {
   "capabilities" {
-    "textDocumentSync" 0
+    "textDocumentSync" {
+      "openClose" true
+      "willSave" true
+      "willSaveWaitUntil" true
+      "save" {
+        "includeText" false
+      }
+    }
 	  "hoverProvider" true
 	  "completionProvider" {
       "triggerCharacters" [ "(" ]

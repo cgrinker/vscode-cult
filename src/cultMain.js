@@ -11,7 +11,7 @@ function activate(ctx) {
     let serverModule = ctx.asAbsolutePath(path.join('src/server', 'server.cult'));
 
     let serverOptions = {
-        command: (os.platform() === 'win32') ? "cult.exe" : "cult",
+        command: (os.platform() === 'win32') ? "D:\\Data\\Clark\\cult\\cultlang\\craft\\build\\bin\\Debug\\cult.exe" : "cult",
         args: [serverModule],
 	};
 
