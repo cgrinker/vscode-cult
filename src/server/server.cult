@@ -1,5 +1,5 @@
-(load-dll "CultlangUv.dll")
-(load-dll "CultlangLsp.dll")
+(require "file:dlls.cult")
+
 
 (require "builtin:cult/uv")
 (require "builtin:cult/lsp")
@@ -32,7 +32,7 @@
 	"textDocument/didOpen" didOpen
 	"textDocument/didSave" didSave
 	"textDocument/willSave" willSave
-	"textDocument/willSaveWaitUntil" willSaveUntil
+	"textDocument/willSaveUntil" willSaveUntil
 	"window/logMessage" logMessage
 	"exit" exit
 	"initialized" initialized
@@ -42,7 +42,7 @@
 
 	"textDocument/completion" completion
 	"textDocument/codeAction" codeAction
-	"textDocument/hover" hover
+	;"textDocument/hover" hover
 
 	"initialize" initialize
 	"shutdown" shutdown
